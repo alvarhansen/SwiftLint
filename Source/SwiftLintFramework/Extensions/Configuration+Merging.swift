@@ -10,10 +10,6 @@ extension Configuration {
     }
 
     private func configuration(forPath path: String) -> Configuration {
-        if path == rootDirectory {
-            return self
-        }
-
         let pathNSString = path.bridge()
         let configurationSearchPath = pathNSString.appendingPathComponent(Configuration.fileName)
 
@@ -41,23 +37,6 @@ extension Configuration {
 
         // If nothing else, return self
         return self
-    }
-
-    private var rootDirectory: String? {
-        guard let rootPath = rootPath else {
-            return nil
-        }
-
-        var isDirectoryObjC: ObjCBool = false
-        guard FileManager.default.fileExists(atPath: rootPath, isDirectory: &isDirectoryObjC) else {
-            return nil
-        }
-
-        if isDirectoryObjC.boolValue {
-            return rootPath
-        } else {
-            return rootPath.bridge().deletingLastPathComponent
-        }
     }
 
     private struct HashableRule: Hashable {

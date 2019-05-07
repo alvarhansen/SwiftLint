@@ -91,4 +91,9 @@ extension ConfigurationTests {
         return Configuration(path: Configuration.fileName, rootPath: projectMockPathLevel3,
                              optional: false, quiet: true)
     }
+
+    var projectMockLevel3WithLevel2Config: Configuration {
+        return Configuration(path: projectMockYAML2, rootPath: projectMockPathLevel3,
+                             optional: false, quiet: true)
+    }
 }
