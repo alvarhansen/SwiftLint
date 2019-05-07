@@ -51,6 +51,9 @@
 #### Experimental
 
 * None.
+* Always read root directory configuration.  
+  [alvarhansen](https://github.com/alvarhansen)
+  [#2747](https://github.com/realm/SwiftLint/issues/2747)
 
 #### Enhancements
 
